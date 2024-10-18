@@ -4,7 +4,7 @@ public class Item
 {
     public Product(string sku, int unitprice)
     {
-        this.unitPrice = unitprice;
+        this.UnitPrice = unitprice;
         this.Sku = sku;
     }
 
