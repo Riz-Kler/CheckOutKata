@@ -79,5 +79,19 @@ namespace CheckoutKataTests
                 Assert.Equal(expected_total, checkout.Total);
             }
 
+            [Theory]
+            [InlineData('A', 3, 130)]
+            [InlineData('B', 2, 45)]
+            [InlineData('A', 7, 310)]
+            [InlineData('B', 11, 255)]
+            public void calculate_discounts(string sku, int number_of_items, int expected_total)
+            {
+                // Act                                                               
+                checkout.Scan(sku, number_of_items);
+
+                // Assert                                                            
+                Assert.Equal(expected_total, checkout.Total);
+            }
+
     }
 }
