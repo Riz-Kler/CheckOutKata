@@ -65,7 +65,7 @@ namespace CheckoutKataTests
             [Theory]
             [InlineData('A', 2, 100)]
             [InlineData('B', 1, 30)]
-            [InlineData('C', 10, 200)]s
+            [InlineData('C', 10, 200)]
             [InlineData('D', 5, 75)]
             public void can_find_price_for_multiple_items(string sku, int number_of_items, int expected_total)
             {
