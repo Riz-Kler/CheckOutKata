@@ -1,3 +1,5 @@
+namespace CheckOutKata
+{
 public class Item
 {
     public Product(string sku, int unitprice)
@@ -8,4 +10,5 @@ public class Item
 
     public readonly string Sku;
     public readonly int UnitPrice;
+}
 }
