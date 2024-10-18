@@ -11,6 +11,10 @@ namespace CheckoutKataTests
                     .UpdateItemUnitPrice("B", 30)
                     .UpdateItemUnitPrice("C", 20)
                     .UpdateItemUnitPrice("D", 15);
+            var specialprices = new SpecialPrices()
+                    .SpecialPriceItemUnit("A", 3, 130)
+                    .SpecialPriceItemUnit("B", 2, 45);
+            checkout = new Checkout(catalog, specialprices);
         }
     }
 }
