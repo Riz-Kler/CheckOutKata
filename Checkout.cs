@@ -18,5 +18,33 @@ namespace CheckoutKata
         private readonly ItemCatalog Catalog;
         private readonly SpecialPrices SpecialPrices;
         private readonly Dictionary<string, int> ScannedItems;
+
+        public void Scan(string sku, int times = 1)
+        {
+            if (ScannedItems.ContainsKey(sku))
+            {
+                ScannedItems[sku] += times;
+            }
+            else
+            {
+                ScannedItems.Add(sku, times);
+            }
+        }
+
+        public int Total
+        {
+            get
+            {
+                var total = 0;
+                foreach (var group in ScannedItems)
+                {
+                    var sku = group.Key;
+                    var number_of_items = group.Value;
+                    total += Discounts.GetDiscountedPrice(sku, ref number_of_items);
+                    total += number_of_items * Catalog.GetPriceForProduct(group.Key);
+                }
+                return total;
+            }
+        }
     }
 }
